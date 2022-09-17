@@ -8,27 +8,32 @@ class UserModel {
         $this->db = new MySQL("local", "root", "root", "wbd1");
     }
 
-    public function findAllUser() {
+    public function find_all_user() {
         $query = "SELECT * FROM users";
         $result = $this->db->query($query);
 
         return $result;
     }
 
-    public function findUser($username) {
+    public function find_user($username) {
         $query = "SELECT * FROM users WHERE username = $username";
         $result = $this->db->query($query);
 
         return $result;
     }
 
-    public function createUser($username, $name, $password, $role) {
+    public function create_user($username, $name, $password, $role) {
         $query = "INSERT INTO users (username, name, password, role) VALUES ('$username', '$name', '$password', '$role')";
         $this->db->query($query);
     }
 
-    public function updateUser($username, $name, $password, $role) {
+    public function update_user($username, $name, $password, $role) {
         $query = "UPDATE users SET name = '$name', password = '$password', role = '$role' WHERE username = '$username'";
+        $this->db->query($query);
+    }
+
+    public function update_password($username, $password) {
+        $query = "UPDATE users SET password = '$password' WHERE username = '$username'";
         $this->db->query($query);
     }
 }

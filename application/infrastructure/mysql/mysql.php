@@ -11,8 +11,14 @@ class MySql {
         $this->connection->close();
     }
 
-    public function query($sql) {
-        return $this->connection->query($sql);
+    public function query($query) {
+        $result = mysqli_query($this->connection, $query);
+        $rows = [];
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            $rows[] = $row;
+        }
+        return $rows;
     }
 }
 

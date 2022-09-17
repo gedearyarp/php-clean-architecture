@@ -32,8 +32,8 @@ if ($conn->connect_error) {
         case '/home':
             require __DIR__ . '/application/view/user/index.php';
         default:
-            http_response_code(404);
-            require __DIR__ . '/views/404.php';
+            // http_response_code(404);
+            // require __DIR__ . '/views/404.php';
             break;
     } ?>
 </body>
