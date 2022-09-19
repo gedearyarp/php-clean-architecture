@@ -5,7 +5,7 @@ class UserModel {
     private $db;
 
     public function __construct() {
-        $this->db = new MySQL("local", "root", "root", "wbd1");
+        $this->db = new MySQL("DB_HOST", "DB_USER", "DB_PASS", "DB_NAME");
     }
 
     public function find_all_user() {

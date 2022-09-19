@@ -1,6 +1,6 @@
 <?php
 
-class MySql {
+class MySQL {
     private $connection;
 
     public function __construct($host, $user, $pass, $db) {

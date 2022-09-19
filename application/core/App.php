@@ -1,7 +1,7 @@
 <?php
 
 class App {
-    protected $controller = 'user';
+    protected $controller = 'login';
     protected $method = 'index';
     protected $params = [];
 
@@ -30,7 +30,7 @@ class App {
         call_user_func_array([$this->controller, $this->method], $this->params);
     }
 
-    public function parseURl() {
+    public function parseURL() {
         if (isset($_GET['url'])) {
             $url = rtrim($_GET['url'], '/');
             $url = filter_var($url, FILTER_SANITIZE_URL);

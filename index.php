@@ -4,6 +4,7 @@ require_once 'application/init.php';
 
 $app = new App();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
