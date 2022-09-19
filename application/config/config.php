@@ -1,5 +1,5 @@
 <?php 
-define('BASEURL', 'http://localhost/phpmvc/public');
+define('BASE_URL', 'http://localhost/htdocs');
 
 define('DB_HOST', 'local');
 define('DB_USER', 'root');

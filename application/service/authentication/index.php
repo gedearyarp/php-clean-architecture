@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../model/user_model.php';
+require_once __DIR__ . '/../../interface/model/user_model.php';
 
 class AuthenticationService {
     public function register($username, $name, $password, $confirm_password, $role) {

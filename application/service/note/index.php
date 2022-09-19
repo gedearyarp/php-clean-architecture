@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../model/note_model.php';
+require_once __DIR__ . '/../../interface/model/note_model.php';
 
 class NoteService {
     public function create_note($title, $content) {

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../service/authentication/index.php';
+require_once __DIR__ . '/../../../service/authentication/index.php';
 
 class Login extends Controller {
     public function index() {
@@ -10,7 +10,7 @@ class Login extends Controller {
         $authService = new AuthenticationService();
         $status = $authService->login($_POST['username'], $_POST['password']);
 
-        if ($status == $SUCCESS) {
+        if ($status == 'SUCCESS') {
             if ($_SESSION['role'] == 'admin') {
                 header('Location: ' . BASE_URL . '/admin');
             } else {

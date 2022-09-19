@@ -8,12 +8,12 @@ class App {
     public function __construct() {
         $url = $this->parseURL();
         
-        if (file_exists('application/controller/' . $url[0] . '.php')) {
+        if (isset($url[0]) and file_exists('application/interface/api/controller/' . $url[0] . '.php')) {
             $this->controller = $url[0];
             unset($url[0]);
         }
 
-        require_once 'application/controller/' . $this->controller . '.php';
+        require_once 'application/interface/api/controller/' . $this->controller . '.php';
         $this->controller = new $this->controller;
 
         if (isset($url[1])) {
@@ -32,6 +32,7 @@ class App {
 
     public function parseURL() {
         if (isset($_GET['url'])) {
+            var_dump($_GET['url']); //TODO: nanti hapus
             $url = rtrim($_GET['url'], '/');
             $url = filter_var($url, FILTER_SANITIZE_URL);
             $url = explode('/', $url);

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../infrastructure/mysql/mysql.php';
+require_once __DIR__ . '/../../infrastructure/mysql/mysql.php';
 
 class NoteModel {
     private $db;
