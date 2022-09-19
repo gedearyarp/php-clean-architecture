@@ -1,15 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$database = "wbd1";
+if (!session_id()) session_start();
+require_once 'application/init.php';
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $database);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+$app = new App();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,18 +16,36 @@ if ($conn->connect_error) {
     switch ($request) {
         case '':
         case '/':
-            
-            require __DIR__ . '/application/view/login/index.php';
-            break;
+            if (!isset($_SESSION['username'])) {
+                require __DIR__ . '/application/view/login/index.php';
+                break;
+            }
         case '/register':
-            require __DIR__ . '/application/view/register/index.php';
+            if (!isset($_SESSION['username'])) {
+                require __DIR__ . '/application/view/register/index.php';
+            break;
+            }
+            else if ($_SESSION['role'] == 'admin') {
+                require __DIR__ . '/application/view/admin/index.php';
+            }
+            else if ($_SESSION['role'] == 'user') {
+                require __DIR__ . '/application/view/user/index.php';
+            }
             break;
         case '/home':
             require __DIR__ . '/application/view/user/index.php';
-        default:
-            // http_response_code(404);
-            // require __DIR__ . '/views/404.php';
             break;
+        default:
+            if (!isset($_SESSION['username'])) {
+                require __DIR__ . '/application/view/login/index.php';
+            break;
+            }
+            else if ($_SESSION['role'] == 'admin') {
+                require __DIR__ . '/application/view/admin/index.php';
+            }
+            else if ($_SESSION['role'] == 'user') {
+                require __DIR__ . '/application/view/user/index.php';
+            }
     } ?>
 </body>
 </html>

@@ -33,6 +33,18 @@
     </div>
 
     <div class="ui main text container">
+        <h1 class="ui header">Insert New Note</h1>
+        <div class="ui divider"></div>
+        <div class="ui fluid icon input" style="padding-bottom: 10px">
+            <input type="text" placeholder="Insert title....">
+        </div>
+        <div class="ui form" style="padding-bottom: 10px">
+            <div class="field">
+                <textarea placeholder="Insert your notes here..."></textarea>
+            </div>
+        </div>
+        <div class="ui button">Post</div>
+        <div class="ui divider"></div>
         <h1 class="ui header">Notes 1</h1>
         <div class="ui container">
             <p class="item">Created on: 2018-01-01</p>

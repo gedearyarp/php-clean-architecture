@@ -49,18 +49,24 @@
                         <input type="text" name="email" placeholder="Username">
                     </div>
                 </div>
-                    <div class="field">
-                        <div class="ui left icon input">
-                            <i class="lock icon"></i>
-                            <input type="password" name="password" placeholder="Password">
-                        </div>
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="address card icon"></i>
+                        <input type="text" name="fullName" placeholder="Full Name" value="">
                     </div>
-                    <div class="field">
-                        <div class="ui left icon input">
-                            <i class="lock icon"></i>
-                            <input type="password" name="confirmPassword" placeholder="Confirm Password">
-                        </div>
+                </div>
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        <input type="password" name="password" placeholder="Password">
                     </div>
+                </div>
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        <input type="password" name="confirmPassword" placeholder="Confirm Password">
+                    </div>
+                </div>
                 <div class="ui fluid large teal submit button">Register</div>
             </div>
             <div class="ui error message"></div>
