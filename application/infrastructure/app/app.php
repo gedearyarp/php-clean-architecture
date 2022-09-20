@@ -8,12 +8,12 @@ class App {
     public function __construct() {
         $url = $this->parseURL();
         
-        if (isset($url[0]) and file_exists('application/interface/api/controller/' . $url[0] . '.php')) {
+        if (isset($url[0]) and file_exists('application/interface/controller/' . $url[0] . '_controller.php')) {
             $this->controller = $url[0];
             unset($url[0]);
         }
 
-        require_once 'application/interface/api/controller/' . $this->controller . '.php';
+        require_once 'application/interface/controller/' . $this->controller . '_controller.php';
         $this->controller = new $this->controller;
 
         if (isset($url[1])) {
