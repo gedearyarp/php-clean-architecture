@@ -1,0 +1,8 @@
+{
+    "name": "wbd/dipa_arik",
+    "description": "Tugas 1 WBD 13520036 13520048",
+    "type": "project",
+    "require": {
+        "vlucas/phpdotenv": "^5.4"
+    }
+}

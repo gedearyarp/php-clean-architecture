@@ -3,11 +3,6 @@ require_once __DIR__ . '/../../service/authentication/index.php';
 
 class Register extends Controller {
     public function index() {
-        echo 'here 1';
-        $authService = new AuthenticationService();
-        echo 'here 2';
-        $status = $authService->register('admin', 'gede dipa', 'admin', 'admin', 'admin');
-        echo 'here 3';
         $this->view('register/index');
     }
 
