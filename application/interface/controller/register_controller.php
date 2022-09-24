@@ -12,11 +12,11 @@ class Register extends Controller {
 
         $data = [];
         if ($status == 'SUCCESS') {
-            header('Location: ' . BASE_URL . '/login');
+            header('Location: ' . BASE_URL . '/');
             // TODO: add flasher
         } else {
             $data['status'] = $status;
-            $this->view('register/index', $data);
+            header('Location: ' . BASE_URL . '/register?err=' . $status);
         }
         $data;
     }

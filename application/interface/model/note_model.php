@@ -28,7 +28,7 @@ class NoteModel {
     }
 
     public function find_note_by_username($username) {
-        $query = "SELECT * FROM notes WHERE username = :username";
+        $query = "SELECT * FROM notes WHERE username = :username ORDER BY create_timestamp DESC";
 
         $this->db->query($query);
         $this->db->bind(':username', $username);

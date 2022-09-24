@@ -7,7 +7,7 @@ class App {
 
     public function __construct() {
         $url = $this->parseURL();
-        var_dump($url);
+
         
         if (isset($url[0]) and file_exists('application/interface/controller/' . $url[0] . '_controller.php')) {
             $this->controller = $url[0];
@@ -15,6 +15,9 @@ class App {
         }
         else if ($url == NULL && isset($_SESSION['role'])) {
             $this->controller = $_SESSION['role'];
+        }
+        else if (!file_exists('application/interface/controller/' . $url[0] . '_controller.php') && isset($_SESSION['role'])) {
+            header('Location: ' . BASE_URL . '/');
         }
 
         require_once 'application/interface/controller/' . $this->controller . '_controller.php';
@@ -36,11 +39,9 @@ class App {
 
     public function parseURL() {
         if (isset($_GET['url'])) {
-            var_dump($_GET['url']); //TODO: nanti hapus
             $url = rtrim($_GET['url'], '/');
             $url = filter_var($url, FILTER_SANITIZE_URL);
             $url = explode('/', $url);
-            var_dump($url[0]);
             return $url;
         }
     }

@@ -21,7 +21,7 @@
             background-color: #FFFFFF;
         }
         .main.container {
-            margin-top: 7em;
+            margin-top: 4em;
         }
 
         .transparent {
@@ -40,12 +40,11 @@
             <a class="teal header item">
                 A Very Simple Note App
             </a>
-            <a class="item">Create New Note</a>
             <div class="ui simple dropdown item right aligned">
                 Welcome, <?=$_SESSION['name']?>
                 <i class="dropdown icon"></i>
                 <div class="menu">
-                    <a class="item">Reset Password</a>
+                    <a class="item" href="/reset_password">Reset Password</a>
                     <a class="item" href="/?logout=true" >Log Out</a>
                 </div>
             </div>
@@ -66,6 +65,8 @@
             </div>
             <button class="ui button" type="submit">Post</button>
         </form>
+        <h1 class="ui header">Your Notes:</h1>
+        <div class="ui divider"></div>
         <?php
             if (isset($data['notes'])) {
                 foreach ($data['notes'] as $note) {

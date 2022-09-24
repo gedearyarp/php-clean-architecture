@@ -15,7 +15,7 @@ class User extends Controller {
             header('Location: ' . BASE_URL . '/');
         } else {
             $data['status'] = $status;
-            $this->view('user/index', $data);
+            header('Location: ' . BASE_URL . '/user?err=' . $status);
         }
     }
 
@@ -26,7 +26,7 @@ class User extends Controller {
             header('Location: ' . BASE_URL . '/');
         } else {
             $data['status'] = $status;
-            $this->view('user/index', $data);
+            header('Location: ' . BASE_URL . '/user?err=' . $status);
         }
     }
 
@@ -37,7 +37,7 @@ class User extends Controller {
             header('Location: ' . BASE_URL . '/');
         } else {
             $data['status'] = $status;
-            $this->view('user/index', $data);
+            header('Location: ' . BASE_URL . '/user?err=' . $status);
         }
     }
 }

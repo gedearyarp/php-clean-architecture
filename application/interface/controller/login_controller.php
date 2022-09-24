@@ -7,10 +7,8 @@ class Login extends Controller {
     }
 
     public function login_user() {
-        var_dump($_POST);
         $authService = new AuthenticationService();
         $status = $authService->login($_POST['username'], $_POST['password']);
-        var_dump($status);
         if ($status == 'SUCCESS') {
             if ($_SESSION['role'] == 'admin') {
                 header('Location: ' . BASE_URL . '/');
@@ -19,7 +17,7 @@ class Login extends Controller {
             }
         } else {
             $data['status'] = $status;
-            $this->view('login/index', $data);
+            header('Location: ' . BASE_URL . '/login?err=' . $status);
         }
     }
 }

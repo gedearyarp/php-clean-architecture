@@ -26,22 +26,26 @@ class UserService {
 
     }
 
-    public function reset_password($password) {
+    public function reset_password($old_password, $new_password, $confirm_new_password) {
         include 'utils/constant.php';
 
         $user_model = new UserModel();
         $username = $_SESSION['username'];
+        $user = $user_model->find_user($username);
 
-        if (!(isset($_SESSION['role']) && $_SESSION['role'] == 'user')) {
-            return $UNAUTHORIZED;
+        if ($new_password != $confirm_new_password) {
+            return $PASSWORD_NOT_MATCH;
         }
 
-        $user_data = $user_model->find_user($username);
-        if ($user_data == null) {
-            return $NOT_FOUND;
+        if ($old_password == $new_password) {
+            return $SAME_PASSWORD;
         }
 
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        if (!password_verify($old_password, $user['password'])) {
+            return $WRONG_OLD_PASSWORD;
+        }
+
+        $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
 
         $user_model->update_password($username, $hashed_password);
 
