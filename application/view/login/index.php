@@ -42,12 +42,12 @@
                     Welcome to a Very Simple Note App
                 </div>
             </h2>
-            <form class="ui large form">
+            <form class="ui large form" method="POST" action="/login/login_user">
             <div class="ui stacked segment">
                 <div class="field">
                     <div class="ui left icon input">
                         <i class="user icon"></i>
-                        <input type="text" name="email" placeholder="Username">
+                        <input type="text" name="username" placeholder="Username">
                     </div>
                 </div>
                     <div class="field">
@@ -56,7 +56,7 @@
                             <input type="password" name="password" placeholder="Password">
                         </div>
                     </div>
-                <div class="ui fluid large teal submit button">Login</div>
+                <button class="ui fluid large teal submit button" type="submit">Login</button>
             </div>
             <div class="ui error message"></div>
             </form>

@@ -8,7 +8,7 @@ class Register extends Controller {
 
     public function register_user() {
         $authService = new AuthenticationService();
-        $status = $authService->register($_POST['username'], $_POST['name'], $_POST['password'], $_POST['confirm_password'], $_POST['role']);
+        $status = $authService->register($_POST['username'], $_POST['name'], $_POST['password'], $_POST['confirm_password'], 'user');
 
         $data = [];
         if ($status == 'SUCCESS') {

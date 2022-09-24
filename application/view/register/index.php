@@ -42,18 +42,18 @@
                     Register
                 </div>
             </h3>
-            <form class="ui large form">
+            <form class="ui large form" method="POST" action="register/register_user">
             <div class="ui stacked segment">
                 <div class="field">
                     <div class="ui left icon input">
                         <i class="user icon"></i>
-                        <input type="text" name="email" placeholder="Username">
+                        <input type="text" name="username" placeholder="Username">
                     </div>
                 </div>
                 <div class="field">
                     <div class="ui left icon input">
-                        <i class="address card icon"></i>
-                        <input type="text" name="fullName" placeholder="Full Name" value="">
+                        <i class="user icon"></i>
+                        <input type="text" name="name" placeholder="Full Name" value="">
                     </div>
                 </div>
                 <div class="field">
@@ -65,10 +65,10 @@
                 <div class="field">
                     <div class="ui left icon input">
                         <i class="lock icon"></i>
-                        <input type="password" name="confirmPassword" placeholder="Confirm Password">
+                        <input type="password" name="confirm_password" placeholder="Confirm Password">
                     </div>
                 </div>
-                <div class="ui fluid large teal submit button">Register</div>
+                <button class="ui fluid large teal submit button" type="submit">Register</button>
             </div>
             <div class="ui error message"></div>
             </form>

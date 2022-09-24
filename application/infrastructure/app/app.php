@@ -7,10 +7,14 @@ class App {
 
     public function __construct() {
         $url = $this->parseURL();
+        var_dump($url);
         
         if (isset($url[0]) and file_exists('application/interface/controller/' . $url[0] . '_controller.php')) {
             $this->controller = $url[0];
             unset($url[0]);
+        }
+        else if ($url == NULL && isset($_SESSION['role'])) {
+            $this->controller = $_SESSION['role'];
         }
 
         require_once 'application/interface/controller/' . $this->controller . '_controller.php';

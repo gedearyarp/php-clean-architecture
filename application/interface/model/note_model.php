@@ -62,7 +62,7 @@ class NoteModel {
     }
 
     public function delete_note_by_id($id) {
-        $query = "DELETE FROM notes WHERE id = :id";
+        $query = "DELETE FROM notes WHERE note_id = :id";
         
         $this->db->query($query);
         $this->db->bind(':id', $id);

@@ -42,9 +42,10 @@ class AuthenticationService {
         }
 
         $_SESSION['username'] = $username;
+        $_SESSION['name'] = $user['name'];
         $_SESSION['role'] = $user['role'];
 
-        return $user;
+        return $SUCCESS;
     }
 
     public function logout() {
